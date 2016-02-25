@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html  ng-app='MessageApp'>
+<head>
+    <title>THE ROUTER</title>
+    <!--<base href="/HenryWeek4" />-->
+</head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.js"></script>
+        <script src="js/newapp.js"></script>
+    <script src="js/controller.js"></script>
+
+    <body>
+        
+        <a href="#/user">User Profile</a>
+        <a href="#/login">Login</a>
+        <a href="#/send">Write a Comment</a>
+        <a href="#/chat">Chat</a>
+        <a href="#/feed">Feed</a>
+        <a href="#/additem">Upload Item</a>
+        
+        <div ng-view>
+         
+        </div>
+    </body>
+</html>

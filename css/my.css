@@ -1,0 +1,82 @@
+/*SITEWIDE STYLES*/
+body {
+    font-family: 'Helvetica Light', Helvetica, Arial, sans-serif;
+    font-weight: 200;
+}
+
+
+/*LOGIN PAGE*/
+
+#logo {
+ width:250px; 
+    
+}
+
+.loginsection {
+    text-align:center;
+    margin-top:150px;
+}
+
+.loginsection input {
+    display:block;
+    position:inline-block;
+    margin:0 auto;
+    height:30px;
+    width:250px;
+}
+
+.loginsection button {
+    height:30px;
+    width:260px;
+    background-color:#722f37;
+    color:white;
+    border-style:none;
+}
+
+.loginsection button:hover {
+   background-color:rgb(155, 63, 74); 
+}
+
+
+
+/*NAV BAR*/
+
+.nav {
+    background-color: #722F37;
+    margin:0;
+    padding:0;
+    position:fixed;
+    bottom:0;
+    width:100%;
+    z-index: 2;
+    
+}
+
+.nav li {
+ display:inline;   
+    
+}
+
+.nav_img {
+ display:inline-block;
+    max-width: 5%;
+    max-height: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+.nav_img:hover {
+    opacity:75%;
+}
+
+/*FEED*/
+
+
+#toplogo {
+   width:200px; 
+
+}
+
+#feeddiv {
+ text-align:center;   
+
+}

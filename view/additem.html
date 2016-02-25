@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Add Item</title>
+        <link rel="stylesheet" type="text/css" href="./css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="./css/my.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    </head>
+
+    <body>
+        <section class='loginsection'>
+            <img id='logo' src='./img/quenchlogo.png'/>
+            <br/><br/><br/><br/>
+            <button type="submit" id="addimage">Upload Image</button><br/><br/>
+            <input type="text" id="name" placeholder="name"/><br/>
+            <input type="text" id="location" placeholder="location"/><br/>
+            <input type="text" id="tags" placeholder="tags"/><br/>
+            <button type="submit" id="additem">Add Item</button><br/><br/><br/>
+        </section>
+        
+        
+    </body>
+    
+    <script>
+       
+    $(document).ready(function(){  
+        var user_id = -1;
+        document.getElementById('additem').onclick = function(){
+            $.ajax({
+                url:"controller/feed.php",
+                type:"post",
+                dataType:"json",
+                data: {
+                    method:"insertimage",
+                    title: document.getElementById('name').value,
+                    location: document.getElementById('location').value,
+                    tags: document.getElementById('tags').value,
+                    user_id: user_id
+                },
+                success:function(resp){
+                    alert("Image Inserted!");
+                    console.log(resp);
+                    user_id = resp[0].id;
+                }
+            });
+            
+            }
+            
+        });
+        
+    </script>
+</html>
+
