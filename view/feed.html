@@ -33,7 +33,7 @@
         
            $.ajax({
                url:"controller/feed.php",
-                type:"post",
+                type:"POST",
                 dataType:"json",
                 data: {
                     method:"getfeed"
@@ -52,7 +52,8 @@
                         
        
                         h3.innerHTML = resp[i].title;
-                        image.src = resp[i].path;
+                        image.src = "./img/1/" +resp[i].path;
+                        //image.src = "./img/1/ resp[i].path";
                         location.innerHTML = resp[i].location;
                         tags.innerHTML = resp[i].tags;
                         

@@ -46,6 +46,10 @@
 
                 //stored in the POST or GET container
                 formData.append("userid", 1);
+                
+                //stored in the POST or GET container
+                formData.append("path", myfiles.files[0].name);
+                
             } else {
                 alert("IMAGE ONLY!");
                 return false;
@@ -69,7 +73,9 @@
         
         xhr.send(formData);
         console.log(myfiles.files);
+        console.log(formData);
     }
+    
         
         document.getElementById('additem').onclick = function(){
             $.ajax({
