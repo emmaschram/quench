@@ -100,26 +100,30 @@
                         h3.style.marginBottom = "0";
                         tags.style.marginTop = "-20px";
                         tags.style.fontSize = "10pt";
-                        save_butt.id = id; 
+                        save_butt.id = "savebutt"+id; 
          
- save_butt.onclick = function(){
-                    $.ajax({
-                       url:"controller/editimage.php",
-                        type:"POST",
-                        dataType:"json",
+ document.getElementById("savebutt"+id).onclick = function(){
+       
+           $.ajax({
+               url:"controller/editimage.php",
+                type:"POST",
+                dataType:"json",
                         data : {
                             method: "editimage",
                             title:document.getElementById("title_i"+id).value,
                             location:document.getElementById("location_i"+id).value,
                             tags:document.getElementById("tag_i"+id).value,
-                            id:id      
+                            id:id     
                         },
                         success:function(resp4){
                                if (resp4 == "success") {
-            alert ("Updated") 
+                                    alert ("Updated"); 
                               
-          }
+                                }
                         
+                        },
+                        error:function(){
+                            console.log("error");
                         }
                             
                             
