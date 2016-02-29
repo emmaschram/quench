@@ -10,7 +10,7 @@ include("connect.php");
 
     function get_feed(){
         global $db;
-        $query = "SELECT images.user_id, images.location, images.title, images.path, images.tags FROM images";
+        $query = "SELECT images.id, images.user_id, images.location, images.title, images.path, images.tags FROM images";
         $result = $db->query($query);
         echo json_encode($result->fetchAll());
     }

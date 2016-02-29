@@ -3,9 +3,9 @@
 include("connect.php");
 
 
-function update_image(){
+function edit_image(){
         global $db;
-        $query = "UPDATE images SET location = '".$_POST['location']."',  title = '".$_POST['title']."', path = '".$_POST['path']."'tags = '".$_POST['tags']."' WHERE id = "images.id"";
+        $query = "UPDATE images SET location = '".$_POST['location']."',  title = '".$_POST['title']."', path = '".$_POST['path']."', tags = '".$_POST['tags']."' WHERE id = "images.id"";
         
         //update info from users from the users table
 }
