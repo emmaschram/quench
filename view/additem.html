@@ -12,6 +12,7 @@
             <img id='logo' src='./img/quenchlogo.png'/>
             <br/><br/><br/><br/>
             <button type="submit" id="addimage">Upload Image</button><br/><br/>
+
             <input type="text" id="name" placeholder="name"/><br/>
             <input type="text" id="location" placeholder="location"/><br/>
             <input type="text" id="tags" placeholder="tags"/><br/>
@@ -40,6 +41,7 @@
                 success:function(resp){
                     alert("Image Inserted!");
                     console.log(resp);
+                    //console.log("hi");
                     user_id = resp[0].id;
                 }
             });
