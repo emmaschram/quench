@@ -16,10 +16,12 @@ include("connect.php");
     }
 
     function update_image(){
+        global $db;
         //update info from users from the users table
     }
 
     function delete_image(){
+        global $db;
         //remove a row of user from the users table
     }
 
