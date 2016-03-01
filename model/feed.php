@@ -15,6 +15,7 @@ include("connect.php");
         echo json_encode($result->fetchAll());
     }
 
+
     function update_image(){
         //update info from users from the users table
     }

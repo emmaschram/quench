@@ -8,4 +8,6 @@ if($_POST['method'] == "insertimage"){
 if($_POST['method'] == "getfeed"){
     get_feed();   
 }
+
+
 ?>
