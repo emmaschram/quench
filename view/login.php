@@ -22,14 +22,13 @@
     
     <script>
       $(document).ready(function(){
-            var user_id = -1;
+            var user_id = 1;
             document.getElementById('sub').onclick = function(){
             $.ajax({
-               url:"controller/login.php",
-                type:"post",
+               url:"model/loggingin.php",
+                type:"POST",
                 dataType:"json",
                 data: {
-                    method:"login",
                     username: document.getElementById('username').value,
                     password: document.getElementById('password').value
                 },
@@ -37,6 +36,7 @@
                     alert("Logged in!");
                     window.location.replace("#/feed");
                     user_id = resp[0].id;
+
                 },
                 error: function (resp){
                     alert("error");

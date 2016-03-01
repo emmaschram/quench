@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -57,7 +58,7 @@
                 },
                 success:function(resp){
                     //alert("INSERT!");
-                    window.location = 'view/feed.html';
+                    window.location = '#/login';
                 }
             });
             

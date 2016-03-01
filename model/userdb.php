@@ -6,6 +6,7 @@
         global $db;
         $query = "INSERT INTO users (email, username, password) VALUES ('".$_POST['email']."', '".$_POST['username']."', '".$_POST['password']."')";
         $result = $db->query($query);
+        echo $query;
         
     }
 
