@@ -6,7 +6,10 @@ if($_POST['method'] == "insertimage"){
 }
 
 if($_POST['method'] == "getfeed"){
-    get_feed();   
+    get_feed();  
+    
+    //if($_POST['method'] == "editimage"){
+    //edit_image(); 
 }
 
 
