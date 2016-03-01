@@ -22,7 +22,7 @@
     
     <script>
       $(document).ready(function(){
-            var user_id = 1;
+            //var user_id = 1;
             document.getElementById('sub').onclick = function(){
             $.ajax({
                url:"model/loggingin.php",

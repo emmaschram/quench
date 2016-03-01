@@ -1,6 +1,6 @@
 <?php
 include("connect.php");
-include("sessionstart.php");
+include("../view/sessionstart.php");
 
 
 $username = $_POST['username'];
@@ -10,7 +10,7 @@ $password = $_POST['password'];
 $user_info = 'SELECT email, username, password, bio, id FROM users 
  WHERE password = "'.$password.'" AND username = "'.$username.'"';
 
-$result = mysqli_query($connect, $user_info);
+$result = mysql_query($connect, $user_info);
 
 
 if($result){
