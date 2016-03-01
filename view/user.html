@@ -67,6 +67,12 @@
                             editdiv.appendChild(input_title);
                                 input_title.value = resp[i].title;
                         
+                        var file_butt = document.createElement("BUTTON");
+                        var t7 = document.createTextNode("Upload New Image");
+                        file_butt.appendChild(t7);
+                        file_butt.setAttribute("type", "file");
+                        editdiv.appendChild(file_butt);
+                        
                         var input_location = document.createElement("input");
                         input_location.type = "text";
                         input_location.id="location_i"+id;
@@ -103,39 +109,37 @@
                         save_butt.id = "savebutt"+id; 
          
  document.getElementById("savebutt"+id).onclick = function(){
-       
+     for(var i = 0; i<resp.length; i++){
+       var id = resp[i].id;
            $.ajax({
                url:"controller/editimage.php",
-                type:"POST",
-                dataType:"json",
-                        data : {
+                type: "POST",
+                dataType: "json",
+                        data: {
                             method: "editimage",
                             title:document.getElementById("title_i"+id).value,
                             location:document.getElementById("location_i"+id).value,
                             tags:document.getElementById("tag_i"+id).value,
-                            id:id     
+                            id:id
+                                 
                         },
                         success:function(resp4){
                                if (resp4 == "success") {
                                     alert ("Updated"); 
-                              
                                 }
                         
                         },
-                        error:function(){
-                            console.log("error");
+                        error:function(error){
+                            console.log(error);
                         }
                             
                             
-                    })
-                        
+                    });
                     }
-                    };
-
-                    
-                }
-            });
-            
+                    }
+                }  
+            }
+        });   
     });
     </script>
 
