@@ -5,4 +5,8 @@ include("../model/editprofile.php");
     edit_profile(); 
 }
 
+   if($_POST['method'] == "getprofile"){
+    get_profile(); 
+}
+
 ?>

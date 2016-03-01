@@ -8,13 +8,30 @@
     </head>
 
     <body>
-        <p id="name">Jane Smith</p>
-        <!-- <img src="../img/1/blender.jpg" id="avatar"> -->
-        <p id="bio">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+        
+        <section class='loginsection'>
+             
+            <form id='myForm'>
+                <input type='file' id='myfile'/>
+                <button id='upload'>Change Profile Picture</button>
+             </form>
+             </br>
+             
+            <div id='editinfo'>
+             <input type="text" id="email"/>    
+             <input type="text" id="e_username"/>
+             <input type="text" id="e_bio"/>
+             <input type="password" id="e_pass"/>
+             <button type="submit" id="confirmbut">Confirm Your Changes</button>
+            </div>    
+        
+        </section>
+
         <div id="main_edit">
         
         </div>
-<div id='feed'></div>    
+    
+        <div id='feed'></div>    
     </body>
         
     <div class="nav">
@@ -29,6 +46,79 @@
     </body>
     <script>
     $(document).ready(function(){
+        
+           $.ajax({
+                url:"controller/editprofile.php",
+                type:"POST",
+                dataType:"json",
+                data: {
+                    method:"getprofile"
+                },
+                success:function(resp){
+                console.log(resp);
+                for(var i = 0; i<resp.length; i++){
+                    var id = resp[i].id;
+                    
+                    var div = document.getElementById("editinfo"); 
+                    var email = document.getElementById("email");
+                    var username = document.getElementById("e_username");
+                    var bio = document.getElementById("e_bio");
+                    var password = document.getElementById("e_pass");
+                    var editbutton = document.getElementById("confirmbut");
+                    
+                    
+                    email.id ="email";
+                    email.value = resp[i].email;
+                    
+                    username.id ="e_username";
+                    username.value = resp[i].username;
+                    
+                    bio.id ="e_bio";
+                    bio.value = resp[i].bio;
+                    
+                    password.id ="e_pass";
+                    password.value = resp[i].password;
+                    
+                    editbutton.onclick = function(){
+                     for(var i = 0; i<resp.length; i++){
+                       var id = resp[i].id;
+                           $.ajax({
+                               url:"controller/editprofile.php",
+                                type: "POST",
+                                dataType: "json",
+                                        data: {
+                                            method: "editprofile",
+                                            email:document.getElementById("email").value,
+                                            username:document.getElementById("e_username").value,
+                                            bio:document.getElementById("e_bio").value,
+                                            password:document.getElementById("e_pass").value,
+                                            id:id
+
+                                        },
+                                        success:function(resp4){
+                                               if (resp4 == "success") {
+                                                    alert ("Updated"); 
+                                                }
+
+                                        },
+                                        error:function(error){
+                                            console.log(error);
+                                        }
+
+
+                                    });
+                                    }
+                                    }
+
+                                }
+                    
+                },
+               
+               error:function(error){
+                console.log(error);   
+               }
+           }); 
+               
         
            $.ajax({
                url:"controller/feed.php",
